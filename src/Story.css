@@ -1,0 +1,96 @@
+/* Credit for the animated rainbow border: https://codepen.io/Chester/pen/QPoyjN */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  text-align: center;
+}
+  
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+  
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+  
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+.Story {
+  position: relative;
+  z-index: 0;
+  margin: auto;
+  width: 80%;
+  height: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 1rem;
+  /* text-align: center; */
+}
+.Story::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: #399953;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+  -webkit-animation: rotate 4s linear infinite;
+          animation: rotate 4s linear infinite;
+}
+.Story::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 7px;
+  top: 7px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  background: white;
+  background-color: #0b6001;
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
+  border-radius: 5px;
+}
+:root {
+  font-size: calc(1vw + 1vh + 1.5vmin);
+}
+  
+h3 {
+    font-weight: 250;
+    /* text-align: center; */
+    text-transform: uppercase;
+    text-align: justify;
+  }
+
+.words {
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #0ff,
+    0 0 80px #0ff,
+    0 0 90px #0ff,
+    0 0 100px #0ff,
+    0 0 150px #0ff;
+} 
+
+.restart {
+  font-size: 1em;
+  border-radius: 0.5em;
+} 
